@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+  }
+
+.grid_container {
+	display: flex;
+    justify-content: center;
+    /* align-items: center; */
+	border : 1px solid;
+	width: 600px;
+	height:600px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.row :after {
+    /* display: flex; */
+    content : "";
+    clear: both;
+}
+
+.grid_item {
+    border : 2px solid;
+    cursor: pointer;
+}
+
+.button_list {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.button_listItem {
+    margin : 10px;
+}
+
+#modal #input form{
+    max-width: 200px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+#modal #input {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+#modal #input .content{
+    height: 15px;
+    width: 7%;
+    position: relative;
+    margin: 20px;
+}
+.content{
+    text-align:center;
+}
+#modal #input .content input{
+    border:1px solid;
+    border-radius: 5px;
+    position: relative;
+    width: 80%;
+    height: 100%;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    color: black;
+}
+#modal #input .content label{
+    position: relative;
+    font-size: smaller;
+}
+
+::placeholder {
+    color: grey;
+    font-size: 14px;
+    opacity: 1;
+}
+
+form {
+    width: 200px;
+    font-size: 14px;
+}
+
+#slideOut_config {
+    position: fixed;
+    width: 250px;
+    height: 400px;
+    top: 100px;
+    left: -250px;
+    background: #f5d49b;
+    /* Animation  */
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#slideOut_saved_config {
+    position: fixed;
+    width: 300px;
+    height: 600px;
+    top: 100px;
+    right: -300px;
+    background: #f5d49b;
+    /* Animation  */
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#slideOut_result {
+    position: fixed;
+    width: 300px;
+    height: 600px;
+    top: 350px;
+    right: -300px;
+    background: #f5d49b;
+    /* Animation  */
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+  
+
+/* Display slideOut */
+.showSlideOut_left {
+    left: 0px !important;
+    border-radius: 8px 8px 8px 8px;
+    overflow-y: initial !important;
+}
+  
+/* Display slideOut */
+.showSlideOut_right {
+    right: 0px !important;
+    border-radius: 8px 8px 8px 8px;
+    overflow-y: initial !important;
+}
+
+.modal-title {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.modal-content {
+    overflow-y: initial !important;
+
+}
+
+.modal-body {
+    margin-left: 10px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.single {
+    font-size: 14px;
+    color: #1742FF;
+}
+  
+/* Tab */
+.slideOutTab_right {
+    margin-top: 50px;
+    position: absolute;
+    left: -40px;
+    height: 200px;
+    width: 40px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    background: #F2AB34;
+    border-radius: 15px 0px 0px 15px
+}
+  
+.slideOutTab_right div {
+    text-align: center;
+    position: relative;
+    right: 70px;
+    top: 80px;
+    background: #F2AB34;
+    width: 180px;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    writing-mode: lr-tb;
+}
+
+/* Tab */
+.slideOutTab_left {
+    margin-top: 50px;
+    position: absolute;
+    right: -40px;
+    height: 200px;
+    width: 40px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    background: #F2AB34;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.modal-body{
+    width: 80%;
+}
+  
+.slideOutTab_left div {
+    text-align: center;
+    position: relative;
+    left: -70px;
+    top: 80px;
+    background: #F2AB34;
+    width: 180px;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    writing-mode: lr-tb;
+}
+
+.select{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

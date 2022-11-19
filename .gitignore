@@ -1,0 +1,59 @@
+##########################
+# Application specfic
+##########################
+# config/config.js
+
+##########################
+# General
+##########################
+
+#####
+# OS X temporary files
+#
+# c.f. http://www.westwind.com/reference/os-x/invisibles.html
+.DS_Store
+
+# c.f. http://www.westwind.com/reference/os-x/invisibles.html
+.Trashes
+
+# c.f. http://www.westwind.com/reference/os-x/invisibles.html
+*.swp
+
+#####
+# Node stuff
+#
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+raft.js/research_class/*.log
+raft.js/research_class/*.aux
+raft.js/research_class/*.pdf
+raft.js/research_class/*.out
+raft.js/research_class/*-blx.bib
+raft.js/research_class/*.bbl
+raft.js/research_class/*.blg
+raft.js/research_class/*.run.xml
+raft.js/research_class/*.bak
+raft.js/node_modules
+node_modules

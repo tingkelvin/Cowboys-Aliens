@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Raft Visualization Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;1,100;1,200;1,300;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="web/demo.css"/>
+    <link rel="stylesheet" href="web/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/components/spawn/getConfig.js"></script>
+</head>
+<body>
+    <header><h1>Complex12pg - Aliens & Cowboys</h1></header>
+
+    <div id="content" style="display: none" >
+        <div class="two_column">
+            <div id="viz">
+                <svg id="svg"></svg>
+                <div id="divs"></div>
+                <div>
+                    <h2>Events</h2>
+                    <textarea id='messages' rows=20></textarea>
+                </div>
+            </div>
+            <div id="simulation">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div id="tasks">
+                <div id="timer"><p>Runtime:</p></div>
+                <p id="stopWatch"></p>  
+                <h2>Timeline</h2>
+                <div id = "navigation">
+                    <input id='stepButton' value="Step" type='button' />
+                    <input id='jumpButton' value="Jump" type='button' />
+                    <input id='startButton' value="Start" type='button' />
+                    <input id='speedOption' value="1xSpeed" type='button' disabled = false/>
+                    <input id='stopButton' value="Stop" type='button' disabled = false/>
+                    <input id='exportButton' value="Export" type='button' />
+                    <input id='saveButton' value="Save" type='button' />
+                    <input id='reconfigButton' value="Re-configure" type='button' />
+                </div>
+                <div id="StatBoard">
+                    <h5 id="cowboyAlive"></h5>
+                    <h5 id="alienDefeat"></h5>
+                    <h5 id="electionSuccessed"></h5>
+                    <h5 id="totalMsgPass"></h5>
+                    <h5 id="totalFires"></h5>
+                    <h5 id="surTime"></h5>
+                    <h5 id="currentLeader"><h5>
+                </div>  
+                <div id="list">
+                    <ul id='taskList'></ul>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <header><h1>Complex12pg - Aliens & Cowboys</h1></header>
+        <!-- dropdown list for algorithm choosing -->
+        <div class="select">
+            <!-- <h3>Algorithms Choosing</h3> -->
+            <form>
+            <label for="algorithms">Select an algorithm:</label>
+            <select name="algorithms" id="algorithms">
+                <optgroup label="RAFT">
+                    <option value="RAFT">RAFT</option>
+                </optgroup>
+                <optgroup label="PAXOS">
+                    <option value="PAXOS">PAXOS</option>
+                </optgroup>
+                <optgroup label="Non-consensus">
+                    <option value="Other Non-consensus algorithm">Other Non-consensus algorithm</option>
+                </optgroup>
+            </select>
+            <!-- <input type="submit" value="Comfirm"> -->
+            </form>
+        </div>
+        <div class="button_list"></div>
+        <div id = "input"></div>
+        <div class="grid_container"></div>
+        <div class="play_button"></div>
+    </div>
+
+
+    <!-- // SlideOut Configuration-->
+    <div id="slideOut_config">
+        <!--   // Tab Configuration-->
+            <div class="slideOutTab_left">
+            <div>
+                <p>Configuration</p>
+            </div>
+            </div>
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Save Configurations</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/configs">
+                    <label>Alien Num:</label>
+                    <input type="text" id="Alien_Num" name="Alien_Num" placeholder="default = 20">
+                    <label>Alien Speed:</label>
+                    <input type="text" id="Alien_Speed" name="Alien_Speed" placeholder="default = 40">
+                    <label>Alien Attack Range:</label>
+                    <input type="text" id="Alien_Attack_Range" name="Alien_Attack_Range" placeholder="default = 10">
+                    <label>Mes Speed:</label>
+                    <input type="text" id="Mes_Speed" name="Mes_Speed" placeholder="default = 1">
+                    <label>Cowboy Num:</label>
+                    <input type="text" id="Cowboy_Num" name="Cowboy_Num" placeholder="default = 15, minimum = 2">
+                    <label>Cowboy Attack Range:</label>
+                    <input type="text" id="cowBoy_Attack_Range" name="cowBoy_Attack_Range" placeholder="default = 10">
+                    <label>Save title:</label>
+                    <input type="text" id="Save_Title" name="Save_Title" placeholder="i.e. Configuration setting by Gavin">
+                    <br></br>
+                    <button>Save</button></form>
+            </div>
+            <div class="modal-footer"> </div>
+            </div>
+        </div>
+
+    <!-- // SlideOut Saved Configuration-->
+    <div id="slideOut_saved_config">
+    <!--   // Tab Configuration-->
+        <div class="slideOutTab_right">
+        <div>
+            <p>Saved Configurations</p>
+        </div>
+        </div>
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Saved Configurations</h4>
+        </div>
+        <div class="modal-body">
+            <% if (configs.length > 0) { %>
+                <% configs.forEach(config => { %>
+                    <a class="single" href="javascript:;" name="/configs/<%= config._id %>" onclick="getConfig(name)">
+                    <h3 class="title"><%= config.Save_Title %></h3>
+                    </a>
+                <% }) %>
+            <% } else { %>
+                <p>There are no configurations...</p>
+            <% } %>
+        </div>
+        <div class="modal-footer"> </div>
+        </div>
+    </div>
+
+    <script src="/components/world/grid-ui.js"></script>
+    <script type="module" src="/components/spawn/index.js"></script>
+    <script type="module" src="/components/spawn//util.js"></script>
+    <script type="module" src="/components/spawn/page.js"></script>
+    <script type="text/javascript" src="/components/spawn/slide.js"></script>
+    <script type="text/javascript" src="web/d3.v3.min.js"></script>
+    <script type="module" src="/web/demo_render.js"></script>
+</body>
+</html>
