@@ -40,6 +40,10 @@ are three key objectives of this project:
 5. Developed an user interface that allow user to tweak with different parameters.
 
 ### User Interface
+
+1. User can choose the spawn the cowboy on the grid.
+2. There are other parameters to experiment such as the speed of the aliens
+
 <p align="center">
   <img src="https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/29e879f1-fe74-419e-bddc-108efe2966af" />
 </p>
