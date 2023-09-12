@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="[http://some_place.com/image.png](https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/98b5756a-9656-449e-b61b-c8bb7a14b95f)" />
+  <img src="https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/98b5756a-9656-449e-b61b-c8bb7a14b95f" />
 </p>
 
 ### Backgrounds
@@ -23,7 +23,47 @@ communicating locally to find consensus on a set of actions that will achieve a 
 any single agent in the distributed network has a negligible impact on the global decision-making capability of the
 population.
 
-![Screenshot 2023-09-11 at 10 51 25 pm](https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/60a54159-30b8-4abc-a7d5-5a1485ad121c)
+<p align="center">
+  <img src="https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/60a54159-30b8-4abc-a7d5-5a1485ad121c" />
+</p>
 
 ### Objectives
-2  decision-making algorithm and its stimulation. We created a user interface that allow user to compare the effectiveness and efficiency of the algorithm under different scenarios configured by a user. Our implementation compare the effectiveness on leader election, since we implemented PAXOS and raft and they both have a different leader election aglorthm. We did not address the issues of clock synchronmiazation and spanning tree construction that mentioned in initial report. Secondly, we focus more on the stimulation because we believe that the stimulation will create a virtua comparison that user might want to see. Moreover, this project's overarching objective is to learn about software engineering principles through the creation of a software system that can test and compare various distributed decision-making processes. 
+
+The overarching aims of this project are to learn about software engineering practices through the development of
+a software system that can test and compare different methods of distributed decision-making. Furthermore, there
+are three key objectives of this project:
+
+1. Create a software system for testing distributed decision-making methods.
+2. Experiment with different distributed decision-making methods.
+3. Compare the effectiveness of each method.
+4. Implemneted 2 distributed aglorithm: Paxos and Raft
+5. Developed an user interface that allow user to tweak with different parameters.
+
+### User Interface
+<p align="center">
+  <img src="https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/29e879f1-fe74-419e-bddc-108efe2966af" />
+</p>
+
+### Demo
+
+Create 2D grid to stimulate invasion of aliens, messages passing and attack from cowboys. 
+
+1. The aliens (red dots) will attack the cloest cowboys (green dots), the cowboy will die once aliens get closed enough.
+2. Cowboy will choose the leader by an election (depends on which consensus aglorithm), the leader will send heartbeat message (oranges dots) to the cowboys.
+3. The cowboys will report their current position and alien position if they see any.
+4. Cowboy can aim (cyan line) the aliens that are in range, and will ask for help (purpule dot) from leader. They need 2 cowboys to kill the alien.
+5. Alien will stop moving whlile being aimed.
+6. The leader will look at all the position of the cowboys, find the closest one and send a rescure message (purple dot)
+7. Once the cowboy received the message (purple), he will move.
+8. There is a posibility that there are other aliens respawning.
+
+<p align="center">
+  <img src="https://github.com/tingkelvin/Cowboys-Aliens/assets/49113121/bc9a8d7b-1eff-4aa9-a57e-bc3cac36a68c" />
+</p>
+
+
+
+
+
+
+
